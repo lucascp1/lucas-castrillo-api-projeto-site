@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros | Fresh Dragon Fruits</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <link rel="shortcut icon" href="logo/shortcut_icon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body style="background:#141327;">
+<div class="container-notification" id="alert_notification" onclick="close_notification()">
+    <div class="content-notification">
+        <h1>Alerta</h1>
+        <span>Função indisponível no momento</span>
+    </div>
+</div>
+<!-- Header Usuário -->
+<header class="header">
+    <!-- Barra de Pesquisa -->
+    <div class="header-search">
+        <!-- Icone Pesquisa -->
+        <i class="bi bi-search icon-search"></i>
+        <!-- Input Pesquisa -->
+        <input class="input-search" id="input_search" type="text" placeholder="Procurar" onkeyup="search()">
+        <div class="alert" id="alert_search"></div>
+    </div>
+    <!-- Usuário -->
+    <div class="header-user">
+        <!-- Notificações -->
+        <div class="user-notifications" onclick="notification()">
+            <span class="notifications">3</span>
+            <i class="bi bi-bell"></i>
+        </div>
+        <!-- Foto de Perfil -->
+        <figure class="user-icon">            
+            <img src="imgs/person_dashboard.png" alt="Foto de Perfil">
+        </figure>
+        <!-- Opções Usuário -->
+        <div class="user-options" onclick="options()">
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </div>
+</header>
+<!-- Menu Lateral -->
+<section class="navbar-vertical">
+    <!-- Logo Menu -->
+    <div class="navbar-logo">
+        <img src="logo/dark_logo.svg" alt="Logotipo Dragon Fruit">
+    </div>
+    <!-- Nav -->
+    <nav class="nav-vertical">
+        <ul>
+            <a href="dashboard.html" class="nav-link">
+                <i class="bi bi-speedometer2 nav-links-icon"></i>
+                <span class="nav-links-name">Painel</span>
+            </a>
+            <a href="grafico.html" class="nav-link">
+                <i class="bi bi-bar-chart-line nav-links-icon"></i>
+                <span class="nav-links-name">Gráficos</span>
+            </a>
+            <a href="registros.html" class="nav-link active">
+                <i class="bi bi-clipboard-data nav-links-icon"></i>
+                <span class="nav-links-name active-span">Registros</span>
+            </a>
+        </ul>
+        <a href="login.html" class="nav-link">
+            <i class="bi bi-box-arrow-left"></i>
+            <span class="nav-links-name">Encerrar</span>
+        </a>
+    </nav>
+</section>
+<!-- Gráficos e Registros -->
+<section class="container-dashboard">
+    <!-- Conteúdo -->
+	<section class="container-graphic">
+        <!-- Titulo e Descrição Gráfico -->
+        <h2 class="dashboard-title">Registros</h2>
+        <article>
+            <h1>Temperatura</h1>
+            <p>Últimas temperaturas registradas.</p>
+        </article>
+        <!-- Registros -->
+        <section class="container-registers">
+            <!-- Ultimos Registros -->
+                <div class="content-registers">
+                    <span class="dots excelente"></span>
+                    <span class="desc-registers">Excelente</span>
+                    <span class="temp-registers">21.2º</span>
+                    <span class="time-registers">11:45:00</span>
+                </div>
+                <div class="content-registers">    
+                    <span class="dots bom-inf"></span>
+                    <span class="desc-registros">Bom Inferior</span>
+                    <span class="temp-registros">18.1º</span>
+                    <span class="time-registros">12:00:00</span>
+                </div>
+                <div class="content-registers">   
+                    <span class="dots excelente"></span>
+                    <span class="desc-registros">Excelente</span>
+                    <span class="temp-registros">22.4º</span>
+                    <span class="time-registros">12:15:00</span>
+                </div>
+                <div class="content-registers">
+                    <span class="dots excelente"></span>
+                    <span class="desc-registros">Excelente</span>
+                    <span class="temp-registros">21.2º</span>
+                    <span class="time-registers">11:45:00</span>
+                </div>
+                <div class="content-registers">    
+                    <span class="dots bom-inf"></span>
+                    <span class="desc-registros">Bom Inferior</span>
+                    <span class="temp-registros">18.1º</span>
+                    <span class="time-registers">12:00:00</span>
+                </div>
+                <div class="content-registers">   
+                    <span class="dots excelente"></span>
+                    <span class="desc-registros">Excelente</span>
+                    <span class="temp-registros">22.4º</span>
+                    <span class="time-registers">12:15:00</span>
+                </div>
+                <div class="content-registers">    
+                    <span class="dots bom-sup"></span>
+                    <span class="desc-registros">Bom Superior</span>
+                    <span class="temp-registros">25.7º</span>
+                    <span class="time-registers">12:30:00</span>
+                </div>
+                <div class="content-registers">
+                    <span class="dots atencao-inf"></span>
+                    <span class="desc-registros">Atenção Inferior</span>
+                    <span class="temp-registros">16.3º</span>
+                    <span class="time-registers">12:45:00</span>
+                </div>
+                <div class="content-registers">
+                    <span class="dots critico-inf"></span>
+                    <span class="desc-registros">Crítico Inferior</span>
+                    <span class="temp-registros">14.5º</span>
+                    <span class="time-registers">13:00:00</span>
+                </div>
+                <div class="content-registers">
+                    <span class="dots critico-sup"></span>
+                    <span class="desc-registros">Crítico Superior</span>
+                    <span class="temp-registros">29.2º</span>
+                    <span class="time-registers">13:15:00</span>
+                </div>
+                <div class="content-registers">
+                    <span class="dots atencao-sup"></span>
+                    <span class="desc-registros">Atenção Superior</span>
+                    <span class="temp-registros">27.7º</span>
+                    <span class="time-registers">13:30:00</span>
+                </div>
+                <div class="content-registers">
+                    <span class="dots bom-inf"></span>
+                    <span class="desc-registros">Bom Inferior</span>
+                    <span class="temp-registros">18.8º</span>
+                    <span class="time-registers">13:45:00</span>
+                </div>
+        </section>
+</section>
+<!-- Gráfico Charts JS -->
+<script>
+// Barra de Pesquisa
+function search(){
+    ipt_search = input_search.value;
+    if(ipt_search.length >=1){
+        alert_search.innerHTML = `Função indisponível em breve.`;
+        alert_search.style.display = 'block';
+    } else{
+        alert_search.style.display = 'none';
+    }
+}
+// Notificações Usuário
+function notification(){
+    alert_notification.style.display = 'flex';
+}
+// Opções Usuário
+function notification(){
+    alert_notification.style.display = 'flex';
+}
+// Opções Usuário
+function options(){
+    alert_notification.style.display = 'flex';
+}
+// Fechar Alerta
+function close_notification(){
+    alert_notification.style.display = 'none';
+}
+</script>    
+</body>
+</html>

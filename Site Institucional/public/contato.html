@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/child.css">
+    <link rel="shortcut icon" href="logo/shortcut_icon.svg" type="image/x-icon">
+    <title>Fresh Dragon Fruits | Temperature Solutions</title>
+</head>
+<body class="bg-contato">
+<!-- Header -->
+<header class="header-nav">
+    <nav class="nav">
+            <!-- Hamburguer Menu Mobile -->
+            <div class="open-menu-icon" id="open_menu_icon" onclick="open_itens_menu()">
+                <svg fill="#FFF" viewBox="0 0 512 512" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z" />
+                </svg>
+            </div>
+            <!-- Fechar Menu Mobile -->
+            <div class="close-menu-icon" id="close_menu_icon" onclick="close_itens_menu()">
+                <svg fill="#FFF" viewBox="0 0 512 512" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z" />
+                </svg>
+            </div>
+            <!-- Fim Hamburguer Menu Mobile -->
+            <!-- Logo Menu -->
+            <div class="nav-logo">
+                    <a href="index.html"><img src="logo/dark_logo.svg" alt="Logo"></a>
+            </div>
+            <!-- Fim Logo Menu -->
+        <!-- Itens Menu -->
+        <ul id="itens_menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sobrenos.html">Sobre nós</a></li>
+            <li><a href="servico.html">Serviço</a></li>
+            <li><a href="time.html">Time</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+        <!-- Fim Itens Menu -->
+        <!-- Botão Login -->
+        <div class="nav-btn" href="#">
+            <a class="btn btn-nav" href="login.html">Login</a>
+        </div>
+        <!-- Fim Botão Login -->
+    </nav>
+</header>
+<!-- Fim Header -->
+<main class="content">
+    <!-- Seção Contato -->
+<section class="container-child-contato img-contato">
+    <!-- Titulo -->
+    <h1 class="dark-title">Nos con<span class="dark-title-underline">tate</span></h1>
+    <span class="msg-validation" id="msg_contact_validation"></span>
+    <!-- Conteúdo Formulário -->
+    <div class="content-child-contato">
+        <!-- Inputs Esquerda -->
+        <div class="form-input-left">
+            <!-- Campo Nome -->
+            <div class="form-input">
+                <label>Nome completo:</label>
+                <i class="fa fa-user-o form-input-icon"></i>
+                <!-- Icone Validação -->
+                <i class="fa fa-check-circle icon-validation-true" id="icon_name_true"></i>
+                <i class="fa fa-times-circle icon-validation-false" id="icon_name_false"></i>
+                <input type="text" placeholder="Fulano da Silva" onkeyup="validacao_name()" id="ipt_name"/>
+                <span class="form-validation-false" id="msg_name_validation"></span>
+            </div>
+            <!-- Campo Email -->
+            <div class="form-input">
+                <label>E-mail:</label>
+                <i class="fa fa-envelope-o form-input-icon"></i>
+                <!-- Icone Validação -->
+                <i class="fa fa-check-circle icon-validation-true" id="icon_email_true"></i>
+                <i class="fa fa-times-circle icon-validation-false" id="icon_email_false"></i>
+                <input type="text" placeholder="fulano@dominio.com" onkeyup="validacao_email()" id="ipt_email"/>
+                <span class="form-validation-false" id="msg_email_validation"></span>
+            </div>
+            <!-- Campo Telefone  -->
+            <div class="form-input">
+                <label>Telefone:</label>
+                <i class="fa fa-phone form-input-icon"></i>
+                <!-- Icone Validação -->
+                <i class="fa fa-check-circle icon-validation-true" id="icon_tel_true"></i>
+                <i class="fa fa-times-circle icon-validation-false" id="icon_tel_false"></i>
+                <input type="text" placeholder="(DDD) 1234-5678"  onkeyup="validacao_tel()" id="ipt_tel"/>
+                <span class="form-validation-false" id="msg_tel_validation"></span>
+            </div>
+        </div>
+        <!-- Inputs Direita -->
+        <div class="form-input-right">
+            <!-- Campo Mensagem -->
+                <label>Mensagem:</label>
+                <textarea placeholder="Digite sua mensagem" cols="30" rows="10"></textarea>
+        </div>
+        <!-- Botão Enviar -->
+        <div class="form-btn">
+            <button class="btn btn-contato" onclick="validation_contato()">Enviar</button>
+        </div>
+    </div>
+</section>
+<!-- Fim Seção Contato -->
+</main>
+<!-- Rodapé -->
+<footer class="footer">
+    <div class="container-footer">
+        <!-- Texto Rodapé -->
+        <article class="footer-about">
+            <a href="index.html"><img src="logo/dark_logo.svg" alt="Logo"></a>
+            <p>Somos uma empresa jovem, voltada para
+            o agronegócio, especificamente para o
+            cultivo da Pitaia, uma fruta exótica e
+            requisitada. Fundada com o intuito de
+            difundirmos a tecnologia em todos os
+            meios possíveis enquanto auxiliamos um
+            setor tão importante para o Brasil</p>
+        </article>
+        <!-- Fim Rodapé -->
+        <!-- Itens Rodapé -->
+        <div class="nav-footer">
+            <ul>
+                <li class="footer-title"><a href="sobrenos.html">Sobre nós</a></li>
+                <li><a href="sobrenos.html">História</a></li>
+            </ul>
+            <ul>
+                <li class="footer-title"><a href="servico.html">Serviço</a></li>
+                <li><a href="servico.html">Solução</a></li>
+            </ul>
+            <ul>
+                <li class="footer-title"><a href="time.html">Time</li></a>
+                <li><a href="time.html">Equipe</a></li>
+            </ul>
+            <ul>
+                <li class="footer-title"><a href="contato.html">Contato</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+        <!-- Fim Itens Rodapé -->
+    </div>
+    <!-- Texto Copyright -->
+    <div class="copyright">
+        <span>© 2021 Fresh Dragon Fruit</span>
+    </div>
+<!-- Fim Texto Copyright -->
+</footer>
+<!-- Fim Rodapé -->
+</body>
+</html>
+<script>
+// Responsividade Menu
+function open_itens_menu(){
+    close_menu_icon.style.display = 'block';
+    open_menu_icon.style.display = 'none';
+    itens_menu.style.display = 'flex';
+    // body.style.overflow = 'hidden';
+}
+function close_itens_menu(){
+    open_menu_icon.style.display = 'block';
+    close_menu_icon.style.display = 'none';
+    itens_menu.style.display = 'none';
+    body.style.overflow = 'unset';
+}
+// Exprssão Nome
+var nameReg = /^[a-zA-Z ]{1,}$/;
+// Expressão Telefone
+var telReg = /^[(]?[0-9]{2,3}[)]?[0-9]{4,5}\-?[0-9]{4}$/;
+// Validacao Nome
+function validacao_name(){
+    // Variável Nome
+    var name = ipt_name.value;
+    // Verifica E-mail
+    if (name.match(nameReg)){
+        msg_name_validation.innerHTML = '';
+        msg_name_validation.style.color = 'var(--green)';
+        ipt_name.style.border = '1px solid var(--green)';
+        ipt_name.style.color = 'var(--green)';
+        icon_name_true.style.display = 'block';   
+        icon_name_false.style.display = 'none';
+    } else{
+        msg_name_validation.style.display = 'block'; 
+        msg_name_validation.innerHTML = 'Verifique o campo preenchido';
+        msg_name_validation.style.color = 'var(--redText)';
+        ipt_name.style.color = 'var(--redText)';
+        ipt_name.style.border = '1px solid var(--red)';
+        icon_name_false.style.color = 'var(--red)';
+        icon_name_false.style.display = 'block';
+        icon_name_true.style.display = 'none';
+    }
+} 
+// Validacao Email
+function validacao_email(){
+    // Variável E-mail
+    var email = ipt_email.value;
+    var verificar_email = email.indexOf('@') && email.indexOf('.');
+    // Verifica E-mail
+    if (verificar_email >= 1){
+        msg_email_validation.innerHTML = '';
+        msg_email_validation.style.color = 'var(--green)';
+        ipt_email.style.border = '1px solid var(--green)';
+        ipt_email.style.color = 'var(--green)';
+        icon_email_true.style.display = 'block';
+        icon_email_false.style.display = 'none';
+    } else{
+        msg_email_validation.style.display = 'block'; 
+        msg_email_validation.innerHTML = 'Verifique o campo preenchido';
+        msg_email_validation.style.color = 'var(--redText';
+        ipt_email.style.color = 'var(--redText)';
+        ipt_email.style.border = '1px solid var(--red)';
+        icon_email_false.style.color = 'var(--red)';
+        icon_email_false.style.display = 'block';
+        icon_email_true.style.display = 'none';
+    }
+}
+// Validacao Telefone
+function validacao_tel(){
+    // Variável Telefone
+    var tel = ipt_tel.value;
+    // Verifica Telefone
+    if (tel.match(telReg)){
+        msg_tel_validation.innerHTML = '';
+        msg_tel_validation.style.color = 'var(--green)';
+        ipt_tel.style.border = '1px solid var(--green)';
+        ipt_tel.style.color = 'var(--green)';
+        icon_tel_true.style.display = 'block';   
+        icon_tel_false.style.display = 'none';
+    } else{
+        msg_tel_validation.style.display = 'block'; 
+        msg_tel_validation.innerHTML = 'Verifique o campo preenchido';
+        msg_tel_validation.style.color = 'var(--redText)';
+        ipt_tel.style.color = 'var(--redText)';
+        ipt_tel.style.border = '1px solid var(--red)';
+        icon_tel_false.style.color = 'var(--red)';
+        icon_tel_false.style.display = 'block';
+        icon_tel_true.style.display = 'none';
+    }
+}
+
+function validation_contato(){
+    // Variável Nome
+    var name = ipt_name.value;
+    // Variável Telefone
+    var tel = ipt_tel.value;
+    if(name.match(nameReg) && tel.match(telReg) && ipt_email.value.indexOf('@') && ipt_email.value.indexOf('.')){
+        msg_contact_validation.style.display = 'block';
+        msg_contact_validation.innerHTML =  'Email enviado, verifique sua caixa de entrada!';
+        msg_contact_validation.style.color = 'var(--green)';
+    }else{
+        msg_contact_validation.style.display = 'block';
+        msg_contact_validation.innerHTML =  'Erro ao enviar o email, verifique os campos preenchidos!';
+    }
+}
+
+</script>

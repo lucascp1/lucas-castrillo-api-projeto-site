@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="logo/shortcut_icon.svg" type="image/x-icon">
+    <title>Fresh Dragon Fruits | Temperature Solutions</title>
+</head>
+
+<body class="body-simulator">
+<!-- Header -->
+<header class="header-nav">
+    <nav class="nav">
+            <!-- Hamburguer Menu Mobile -->
+            <div class="open-menu-icon" id="open_menu_icon" onclick="open_itens_menu()">
+                <svg fill="#FFF" viewBox="0 0 512 512" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z" />
+                </svg>
+            </div>
+            <!-- Fechar Menu Mobile -->
+            <div class="close-menu-icon" id="close_menu_icon" onclick="close_itens_menu()">
+                <svg fill="#FFF" viewBox="0 0 512 512" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z" />
+                </svg>
+            </div>
+            <!-- Fim Hamburguer Menu Mobile -->
+            <!-- Logo Menu -->
+            <div class="nav-logo">
+                    <a href="index.html"><img src="logo/dark_logo.svg" alt="Logo"></a>
+            </div>
+            <!-- Fim Logo Menu -->
+        <!-- Itens Menu -->
+        <ul id="itens_menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sobrenos.html">Sobre nós</a></li>
+            <li><a href="servico.html">Serviço</a></li>
+            <li><a href="time.html">Time</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+        <!-- Fim Itens Menu -->
+        <!-- Botão Login -->
+        <div class="nav-btn" href="#">
+            <a class="btn btn-nav" href="login.html">Login</a>
+        </div>
+        <!-- Fim Botão Login -->
+    </nav>
+</header>
+<!-- Fim Header -->
+<main class="content">
+        <!-- Hero -->
+        <section class="container-planos">
+            <div class="content-simulator">
+                <h1 class="h1-calcule">Calcule seu investimento!</h1>
+                <p>Digite sua área de cultivo e selecione um dos planos abaixo:</p>
+                <div>
+                    <input id="ipt_area" class="ipt-simulator" type="text" placeholder="Área de cultivo em hectáres">
+                </div>
+            </div>
+            <div class="content-planos">
+                <div class="planoBox" id="box_plano_basico">
+                    <div class="title-planos">
+                        <h1>Básico</h1>
+                        <h3>R$ 249,99<b>/hectare</b></h3>
+                        <h5>Mínimo de 1 hectare</h5>
+                    </div>
+                    <ul>
+                        <li class="planos-true"><i class="fa fa-check-circle"></i>1TB</li>
+                        <li class="planos-true"><i class="fa fa-check-circle"></i>Manutenção gratuita de 6 Meses</li>
+                        <li class="planos-false"><i class="fa fa-times-circle"></i>Garantia</li>
+                        <li class="planos-false"><i class="fa fa-times-circle"></i>Análise de Dados</li>
+                    </ul>
+                    <div class="div-btn-planos">
+                        <button class="btn-planos" onclick="btn_basico()">Escolher Plano</button>
+                    </div>
+                </div>
+                <div class="planoBox" id="box_plano_intermediario">
+                    <div class="title-planos">
+                        <h1>Intermediário</h1>
+                        <h3>R$ 349,99<b>/hectare</b></h3>
+                        <h5>Mínimo de 1 hectare</h5>
+                    </div>
+                    <ul>
+                        <li class="planos-true"><i class="fa fa-check-circle"></i>3TB</li>
+                        <li class="planos-true"><i class="fa fa-check-circle"></i>Manutenção gratuita de 1 Ano</li>
+                        <li class="planos-true"><i class="fa fa-check-circle"></i>Garantia 1 Ano</li>
+                        <li class="planos-false"><i class="fa fa-times-circle"></i>Análise de Dados</li>
+                    </ul>
+                    <div class="div-btn-planos">
+                        <button class="btn-planos" onclick="btn_intermediario()">Escolher Plano</button>
+                    </div>
+                </div>
+                <div class="planoBox" id="box_plano_avancado">
+                    <div class="title-planos">
+                        <h1>Avançado</h1>
+                        <h3>R$ 499,99<b>/hectare</b></h3>
+                        <h5>Mínimo de 1 hectare</h5>
+                    </div>
+                    <ul>
+                        <li class="planos-true"><i class="fa fa-check-circle"></i>5TB</li>
+                        <li class="planos-true"><i class="fa fa-check-circle"></i>Manutenção gratuita de 3 Anos</li>
+                        <li class="planos-true"><i class="fa fa-check-circle"></i>Garantia 3 Anos</li>
+                        <li class="planos-true"><i class="fa fa-check-circle"></i>Análise de Dados</li>
+                    </ul>
+                    <div class="div-btn-planos">
+                        <button class="btn-planos" onclick="btn_avancado()">Escolher Plano</button>
+                    </div>
+                </div>
+            </div>
+            <div class="div-msg-simulador" id="div_msg"></div>
+        </section>
+</main>
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container-footer">
+            <!-- Texto Rodapé -->
+            <article class="footer-about">
+                <a href="index.html"><img src="logo/dark_logo.svg" alt="Logo"></a>
+                <p>Somos uma empresa jovem, voltada para
+                    o agronegócio, especificamente para o
+                    cultivo da Pitaia, uma fruta exótica e
+                    requisitada. Fundada com o intuito de
+                    difundirmos a tecnologia em todos os
+                    meios possíveis enquanto auxiliamos um
+                    setor tão importante para o Brasil</p>
+            </article>
+            <!-- Fim Rodapé -->
+            <!-- Itens Rodapé -->
+            <div class="nav-footer">
+                <ul>
+                    <li class="footer-title"><a href="sobrenos.html">Sobre nós</a></li>
+                    <li><a href="sobrenos.html">História</a></li>
+                </ul>
+                <ul>
+                    <li class="footer-title"><a href="servico.html">Serviço</a></li>
+                    <li><a href="servico.html">Solução</a></li>
+                </ul>
+                <ul>
+                    <li class="footer-title"><a href="time.html">Time</li></a>
+                    <li><a href="time.html">Equipe</a></li>
+                </ul>
+                <ul>
+                    <li class="footer-title"><a href="contato.html">Contato</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <!-- Fim Itens Rodapé -->
+        </div>
+        <!-- Texto Copyright -->
+        <div class="copyright">
+            <span>© 2021 Fresh Dragon Fruit</span>
+        </div>
+        <!-- Fim Texto Copyright -->
+    </footer>
+    <!-- Fim Rodapé -->
+</body>
+
+</html>
+<script>
+// Menu
+function open_itens_menu() {
+        close_menu_icon.style.display = 'block';
+        open_menu_icon.style.display = 'none';
+        itens_menu.style.display = 'flex';
+        // body.style.overflow = 'hidden';
+}
+function close_itens_menu() {
+    open_menu_icon.style.display = 'block';
+    close_menu_icon.style.display = 'none';
+    itens_menu.style.display = 'none';
+    body.style.overflow = 'unset';
+}
+
+    var areaReg = /^[0-9]{1,}$/;
+
+    function btn_basico() {
+        var area = ipt_area.value;
+        var lucroB = area * 3000;
+        var custoBasico = area * 249.99;
+        lucroB = lucroB.toFixed(2);
+        custoBasico = custoBasico.toFixed(2);
+
+        if(area.match(areaReg)){
+                div_msg.innerHTML = `<p>Como você possuí ${area} hectares, com o plano Básico seu lucro será de <b style="color: #DD1964;"
+                                >R$ ${lucroB} por safra<b style="color: #908FA2;">*</b></b>
+                                Nesse plano você irá pagar R$ 249,99 mensais por hectare, 
+                                totalizando <b style="color: #DD1964;"> R$ ${custoBasico}.</b>
+                            
+                                <b style="color: #908FA2; font-weight: 200; font-size: 15px">*A safra da Pitaia tem ciclo de 50 dias.</b></p>`;
+        } else{
+            div_msg.innerHTML = '<h1><b style="color: #DD1964;">Preecha o campo de hectares!</b></h1>';
+            }
+    
+        box_plano_basico.style.backgroundColor = '#141327';
+        box_plano_intermediario.style.backgroundColor = 'transparent';
+        box_plano_avancado.style.backgroundColor = 'transparent';
+    }
+
+    function btn_intermediario() {
+        var area = ipt_area.value;
+        var lucroI = area * 4000;
+        var custoIntermediario = area * 349.99;
+        lucroI = lucroI.toFixed(2);
+        custoIntermediario = custoIntermediario.toFixed(2);
+
+        if(area.match(areaReg)){
+        div_msg.innerHTML = `<p>Como você possuí ${area} hectares, com o plano Intermediário seu lucro será de <b style="color: #DD1964;"
+                                >R$ ${lucroI} por safra<b style="color: #908FA2;">*</b></b>
+                                Nesse plano você irá pagar R$ 349,99 mensais por hectare, 
+                                totalizando <b style="color: #DD1964;"> R$ ${custoIntermediario}.</b>
+                    
+                                <b style="color: #908FA2; font-weight: 200; font-size: 15px">*A safra da Pitaia tem ciclo de 50 dias.</b></p>`;
+        } else{
+            div_msg.innerHTML = '<h1><b style="color: #DD1964;">Preecha o campo de hectares!</b></h1>';
+            }
+
+        box_plano_intermediario.style.backgroundColor = '#141327';
+        box_plano_basico.style.backgroundColor = 'transparent';
+        box_plano_avancado.style.backgroundColor = 'transparent';
+    }
+
+    function btn_avancado() {
+        var area = ipt_area.value;
+        var lucroA = area * 5000;
+        var custoAvancado = area * 499.99;
+        lucroA = lucroA.toFixed(2);
+        custoAvancado = custoAvancado.toFixed(2);
+
+        if(area.match(areaReg)){
+        div_msg.innerHTML = `<p>Como você possuí ${area} hectares, com o plano Avançado seu lucro será de <b style="color: #DD1964;"
+                                >R$ ${lucroA} por safra <b style="color: #908FA2;">*</b></b>
+                                Nesse plano você irá pagar R$ 499,99 mensais por hectare, 
+                                totalizando <b style="color: #DD1964;"> R$ ${custoAvancado}.</b>
+
+                                <b style="color: #908FA2; font-weight: 200; font-size: 15px">*A safra da Pitaia tem ciclo de 50 dias.</b></p>`;
+        } else{
+            div_msg.innerHTML = '<h1><b style="color: #DD1964;">Preecha o campo de hectares!</b></h1>';
+            }
+
+        box_plano_avancado.style.backgroundColor = '#141327';
+        box_plano_basico.style.backgroundColor = 'transparent';
+        box_plano_intermediario.style.backgroundColor = 'transparent';
+    }
+</script>

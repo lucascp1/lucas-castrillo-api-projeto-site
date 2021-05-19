@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="shortcut icon" href="logo/shortcut_icon.svg" type="image/x-icon">
+    <title>Fresh Dragon Fruits | Temperature Solutions</title>
+</head>
+<body>
+<!-- Seção Login -->
+<!-- Conteúdo Login -->
+<section class="container-login">
+    <!-- Conteúdo Lógin -->
+    <div class="content-form">
+        <!-- Logo  -->
+        <figure class="login-logo">
+            <a href="index.html"><img src="logo/dark_logo.svg" alt="Logo"></a>
+        </figure>
+        <!-- Campo Usuario -->
+        <form id="form_login" method="post" onsubmit="return entrar()">
+        <div class="form-input input-login">
+            <label>Usuário:</label>
+            <i class="fa fa-user-o form-input-icon"></i>
+            <!-- Icone Validação -->
+            <i class="fa fa-check-circle icon-validation-true" id="icon_usuario_login_true"></i>
+            <i class="fa fa-times-circle icon-validation-false" id="icon_usuario_login_false"></i>
+            <input id="ipt_usuario_login" onkeyup="validacao_usuario_login()" action="//localhost:9001/login" type="text" name="login" placeholder="Digite seu usuário"/>
+            <span class="form-validation-false" id="msg_usuario_validation_login"></span>
+        </div>
+        <!-- Campo Senha -->
+        <div class="form-input input-login" >
+            <label>Senha: <span><a href="recover.html">Esqueceu a senha?</a></span></label> 
+            <i class="fa fa-lock form-input-icon"></i>
+            <!-- Icone Visualizar Senha -->
+            <i class="fa fa-eye-slash icon-display-password" id="form_show_password" onclick="display_show_password()"></i>
+            <i class="fa fa-eye icon-display-password" id="form_hidden_password" onclick="display_hidden_password()"></i>
+            <!-- Icone Validação -->
+            <i class="fa fa-check-circle icon-validation-true" id="icon_senha_login_true"></i>
+            <i class="fa fa-times-circle icon-validation-false" id="icon_senha_login_false"></i>
+            <input id="ipt_senha_login" onkeyup="validacao_senha_login()" action="//localhost:9001/login" type="password" name="senha" placeholder="Digite sua senha"/>
+            <span  class="form-validation-false" id="msg_senha_validation_login"></span>
+        </div>
+        <!-- Botão Login -->
+        <div class="form-btn">
+            <span class="msg-cadastrar">Não possuí cadastro? <a href="cadastro.html"><b>Registre-se</b></a></span>
+            <button id="btn_entrar" class="btn btn-login" onclick="validacao_login()">Entrar</button>
+            <!-- Mensagem Validação -->
+            <span class="msg-validation" id="msg_login"></span>
+        </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>
+<script>
+//Expressão Usuário
+var usuarioReg = /^[a-zA-Z0-9_-]{5,35}$/;
+
+
+//Expressão Senha
+var senhaReg = /^(?=.*[0-9]{3})(?=.*[A-Z]{1})(?=.*[a-z]{1})[a-zA-Z0-9]{6,}$/;
+
+function validacao_usuario_login(){
+    // Variáveis Login
+    var usuario_login = ipt_usuario_login.value;
+    // Verifica Usuário
+    if (usuario_login.match(usuarioReg) || usuario_login.match(senhaReg)){
+        msg_usuario_validation_login.innerHTML = '';
+        msg_usuario_validation_login.style.color = 'var(--green)';
+        ipt_usuario_login.style.border = '1px solid var(--green)';
+        ipt_usuario_login.style.color = 'var(--green)';
+        icon_usuario_login_true.style.display = 'block';   
+        icon_usuario_login_false.style.display = 'none';
+    } else{
+        msg_usuario_validation_login.innerHTML = 'Insira um usuário válido';
+        msg_usuario_validation_login.style.color = 'var(--redText)';
+        ipt_usuario_login.style.color = 'var(--redText)';
+        ipt_usuario_login.style.border = '1px solid var(--red)';
+        icon_usuario_login_false.style.color = 'var(--red)';
+        icon_usuario_login_false.style.display = 'block';
+        icon_usuario_login_true.style.display = 'none';
+    }
+}
+// Visualizar Senha
+function display_show_password(){
+    form_show_password.style.display = 'none';
+    form_hidden_password.style.display = 'block';
+    ipt_senha_login.type = 'text';
+    
+}
+function display_hidden_password(){
+    form_show_password.style.display = 'block';
+    form_hidden_password.style.display = 'none';
+    ipt_senha_login.type = 'password';
+}
+function validacao_senha_login(){
+    // Variáveis Senha
+    var senha_login = ipt_senha_login.value;
+    // Verifica Senha
+    if (senha_login.match(senhaReg)){
+        msg_senha_validation_login.innerHTML = '';
+        msg_senha_validation_login.style.color = 'var(--green)';
+        ipt_senha_login.style.border = '1px solid var(--green)';
+        ipt_senha_login.style.color = 'var(--green)';
+        icon_senha_login_true.style.display = 'block';
+        icon_senha_login_false.style.display = 'none';
+    } else{
+        msg_senha_validation_login.innerHTML = 'Insira uma senha válida';
+        msg_senha_validation_login.style.color = 'var(--redText)';
+        ipt_senha_login.style.color = 'var(--redText)';
+        ipt_senha_login.style.border = '1px solid var(--red)';
+        icon_senha_login_false.style.color = 'var(--red)';
+        icon_senha_login_false.style.display = 'block';
+        icon_senha_login_true.style.display = 'none';
+    }
+}
+// Validação no Botão
+function validacao_login(){
+    var usuario_login = ipt_usuario_login.value;
+    var senha_login = ipt_senha_login.value;
+    if(usuario_login.match(usuarioReg) && senha_login.match(senhaReg)){
+        msg_login.style.display = 'none';
+    } else{
+        msg_login.style.display = 'block';
+        msg_login.innerHTML =  'Usuário ou Senha inválida. Tente novamente';
+    } 
+}
+
+// FUNCÃO ENTRAR API 
+
+function entrar() {
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    sessionStorage.login_usuario_meuapp = json.login;
+                    sessionStorage.nome_usuario_meuapp = json.nome;
+
+                    window.location.href = 'dashboard.html';
+                });
+
+            } else {
+                console.log('Erro de login!');
+            }
+        });
+        return false;
+    }
+</script>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="shortcut icon" href="logo/shortcut_icon.svg" type="image/x-icon">
+    <title>Cadastro - Fresh Dragon Fruits | Temperature Solutions</title>
+</head>
+
+<body>
+    <!-- Seção Registro -->
+    <section class="container-register">
+        <!-- Imagem Plantação -->
+        <div class="content-image">
+            <figure>
+                <img src="svg/register2.svg" alt="">
+            </figure>
+        </div>
+        <!-- Formulário Registro -->
+        <div class="content-form">
+            <!-- Logo -->
+            <figure class="login-logo">
+                <a href="index.html"><img src="logo/dark_logo.svg" alt=""></a>
+            </figure>
+            <!-- Conteúdo Formulário -->
+            <div class="content-form-register">
+                <!-- Inputs Top -->
+                <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                <div class="form-register-top grid-register">
+                    <!-- Campo Nome -->
+                        <div class="form-input input-register">
+                            <label for="">Nome:</label>
+                            <i class="fa fa-user-o form-input-icon"></i>
+                            <!-- Icone Validação -->
+                            <i class="fa fa-check-circle icon-validation-true" id="icon_name_register_true"></i>
+                            <i class="fa fa-times-circle icon-validation-false" id="icon_name_register_false"></i>
+                            <input id="ipt_name_register" onkeyup="validacao_name_register()" type="text" autofocus="autofocus"
+                            name="nome" placeholder="Fulano">
+                            <span class="form-validation-false" id="msg_name_validation_register"></span>
+                        </div>
+                        <!-- Campo Sobrenome -->
+                        <div class="form-input input-register">
+                            <label for="">Sobrenome:</label>
+                            <i class="fa fa-user-o form-input-icon"></i>
+                            <!-- Icone Validação -->
+                            <i class="fa fa-check-circle icon-validation-true" id="icon_lastname_register_true"></i>
+                            <i class="fa fa-times-circle icon-validation-false" id="icon_lastname_register_false"></i>
+                            <input id="ipt_lastname_register" onkeyup="validacao_lastname_register()" type="text"
+                            name="sobrenome" placeholder="Silva">
+                            <span class="form-validation-false" id="msg_lastname_validation_register"></span>
+                        </div>
+                        <!-- Campo CPF -->
+                        <div class="form-input input-register">
+                            <label for="">CPF:</label>
+                            <i class="fa fa-id-card-o form-input-icon"></i>
+                            <!-- Icone Validação -->
+                            <i class="fa fa-check-circle icon-validation-true" id="icon_cpf_register_true"></i>
+                            <i class="fa fa-times-circle icon-validation-false" id="icon_cpf_register_false"></i>
+                            <input id="ipt_cpf_register" onkeyup="validacao_cpf_register()" type="text"
+                            name="cpf" placeholder="000.000.000-00">
+                            <span class="form-validation-false" id="msg_cpf_validation_register"></span>
+                        </div>
+                        <!-- Campo Telefone -->
+                        <div class="form-input input-register">
+                            <label for="">Telefone:</label>
+                            <i class="fa fa-phone form-input-icon"></i>
+                            <!-- Icone Validação -->
+                            <i class="fa fa-check-circle icon-validation-true" id="icon_tel_register_true"></i>
+                            <i class="fa fa-times-circle icon-validation-false" id="icon_tel_register_false"></i>
+                            <input id="ipt_tel_register" onkeyup="validacao_tel_register()" type="text"
+                            name="telefone" placeholder="(DDD) 1234-5678">
+                            <span class="form-validation-false" id="msg_tel_validation_register"></span>
+                        </div>
+                </div>
+                <!-- Inputs Bottom -->
+                <div class="form-register-bottom input-register">
+                    <!-- Campo Email -->
+                    <div class="form-input">
+                        <label for="">Email:</label>
+                        <i class="fa fa-envelope-o form-input-icon"></i>
+                        <!-- Icone Validação -->
+                        <i class="fa fa-check-circle icon-validation-true" id="icon_email_register_true"></i>
+                        <i class="fa fa-times-circle icon-validation-false" id="icon_email_register_false"></i>
+                        <input id="ipt_email_register" onkeyup="validacao_email_register()" type="text"
+                        name="email" placeholder="fulano@dominio.com">
+                        <span class="form-validation-false" id="msg_email_validation_register"></span>
+                    </div>
+                    <!-- Campo Usuário -->
+                    <div class="form-input">
+                        <label for="">Usuário:</label>
+                        <i class="fa fa-user-o form-input-icon"></i>
+                        <!-- Icone Validação -->
+                        <i class="fa fa-check-circle icon-validation-true" id="icon_usuario_register_true"></i>
+                        <i class="fa fa-times-circle icon-validation-false" id="icon_usuario_register_false"></i>
+                        <input id="ipt_usuario_register" onkeyup="validacao_usuario_register()" type="text"
+                        name="login" placeholder="Digite seu usuario">
+                        <span class="form-validation-false" id="msg_usuario_validation_register"></span>
+                    </div>
+                    <!-- Campo Senha -->
+                    <div class="form-input">
+                        <label for="">Senha:</label>
+                        <i class="fa fa-lock form-input-icon"></i>
+                        <!-- Icone Visualizar Senha -->
+                        <i class="fa fa-eye-slash icon-display-password" id="register_show_password"
+                            onclick="display_show_password()"></i>
+                        <i class="fa fa-eye icon-display-password" id="register_hidden_password"
+                            onclick="display_hidden_password()"></i>
+                        <!-- Icone Validação -->
+                        <i class="fa fa-check-circle icon-validation-true" id="icon_senha_register_true"></i>
+                        <i class="fa fa-times-circle icon-validation-false " id="icon_senha_register_false"></i>
+                        <input id="ipt_senha_register" onkeyup="validacao_senha_register()" type="password"
+                        name="senha" placeholder="Digite sua senha">
+                        <span class="form-validation-false" id="msg_senha_validation_register"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- Botão Registro -->
+            <div class="form-btn">
+                <span class="msg-cadastrar">Já é registrado? <a href="login.html"><b>Entrar</b></a></span>
+                <button id="btn_entrar" class="btn btn-login" type="submit" >Registrar</button>
+                <!-- Mensagem Validação -->
+                <span class="msg-validation" id="msg_register"></span>
+            </div>
+            </form>
+    </section>
+</body>
+
+</html>
+<script>
+    // Expressões Regulares
+    //Expressão Nome
+    var nameReg = /^[a-zA-Z ]{1,}$/;
+    //Expressão Sobrenome
+    var lastnameReg = /^[a-zA-Z ]{1,}$/;
+    //Expressão CPF
+    var cpfReg = /^[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}$/;
+    //Expressão Telefone
+    var telReg = /^[(]?[0-9]{2,3}[)]?[0-9]{4,5}\-?[0-9]{4}$/;
+    //Expressão Usuário
+    var usuarioReg = /^[a-zA-Z0-9_-]{5,35}$/;
+    //Expressão Senha
+    var senhaReg = /^(?=.*[0-9]{3})(?=.*[A-Z]{1})(?=.*[a-z]{1})[a-zA-Z0-9]{6,}$/;
+
+    // Validacao Nome
+    function validacao_name_register() {
+        var name = ipt_name_register.value;
+        // Verifica Nome
+        if (name.match(nameReg)) {
+            msg_name_validation_register.innerHTML = '';
+            msg_name_validation_register.style.color = 'var(--green)';
+            ipt_name_register.style.border = '1px solid var(--green)';
+            ipt_name_register.style.color = 'var(--green)';
+            icon_name_register_true.style.display = 'block';
+            icon_name_register_false.style.display = 'none';
+        } else {
+            msg_name_validation_register.innerHTML = 'Verifique o campo preenchido';
+            msg_name_validation_register.style.color = 'var(--redText)';
+            ipt_name_register.style.color = 'var(--redText)';
+            ipt_name_register.style.border = '1px solid var(--red)';
+            icon_name_register_false.style.color = 'var(--red)';
+            icon_name_register_false.style.display = 'block';
+            icon_name_register_true.style.display = 'none';
+        }
+    }
+
+    // Validacao Sobrenome
+    function validacao_lastname_register() {
+        var lastname = ipt_lastname_register.value;
+        // Verifica Sobrenome
+        if (lastname.match(lastnameReg)) {
+            msg_lastname_validation_register.innerHTML = '';
+            msg_lastname_validation_register.style.color = 'var(--green)';
+            ipt_lastname_register.style.border = '1px solid var(--green)';
+            ipt_lastname_register.style.color = 'var(--green)';
+            icon_lastname_register_true.style.display = 'block';
+            icon_lastname_register_false.style.display = 'none';
+        } else {
+            msg_lastname_validation_register.innerHTML = 'Verifique o campo preenchido';
+            msg_lastname_validation_register.style.color = 'var(--redText)';
+            ipt_lastname_register.style.color = 'var(--redText)';
+            ipt_lastname_register.style.border = '1px solid var(--red)';
+            icon_lastname_register_false.style.color = 'var(--red)';
+            icon_lastname_register_false.style.display = 'block';
+            icon_lastname_register_true.style.display = 'none';
+        }
+    }
+
+    // Validacao CPF
+    function validacao_cpf_register() {
+        var cpf = ipt_cpf_register.value;
+        // Verifica CPF
+        if (cpf.match(cpfReg)) {
+            msg_cpf_validation_register.innerHTML = '';
+            msg_cpf_validation_register.style.color = 'var(--green)';
+            ipt_cpf_register.style.border = '1px solid var(--green)';
+            ipt_cpf_register.style.color = 'var(--green)';
+            icon_cpf_register_true.style.display = 'block';
+            icon_cpf_register_false.style.display = 'none';
+        } else {
+            msg_cpf_validation_register.innerHTML = 'Insira um CPF válido';
+            msg_cpf_validation_register.style.color = 'var(--redText)';
+            ipt_cpf_register.style.color = 'var(--redText)';
+            ipt_cpf_register.style.border = '1px solid var(--red)';
+            icon_cpf_register_false.style.color = 'var(--red)';
+            icon_cpf_register_false.style.display = 'block';
+            icon_cpf_register_true.style.display = 'none';
+        }
+    }
+
+    // Validacao Telefone
+    function validacao_tel_register() {
+        var tel = ipt_tel_register.value;
+        // Verifica Telefone
+        if (tel.match(telReg)) {
+            msg_tel_validation_register.style.color = 'var(--green)';
+            msg_tel_validation_register.innerHTML = '';
+            ipt_tel_register.style.border = '1px solid var(--green)';
+            ipt_tel_register.style.color = 'var(--green)';
+            icon_tel_register_true.style.display = 'block';
+            icon_tel_register_false.style.display = 'none';
+        } else {
+            msg_tel_validation_register.innerHTML = 'Insira um número de telefone válido';
+            msg_tel_validation_register.style.color = 'var(--redText)';
+            ipt_tel_register.style.color = 'var(--redText)';
+            ipt_tel_register.style.border = '1px solid var(--red)';
+            icon_tel_register_false.style.color = 'var(--red)';
+            icon_tel_register_false.style.display = 'block';
+            icon_tel_register_true.style.display = 'none';
+        }
+    }
+
+    // Validacao Email
+    function validacao_email_register() {
+        // Variável E-mail
+        var email = ipt_email_register.value;
+        // Verifica E-mail
+        if (email.indexOf('@') >= 1 && email.indexOf('.') >= 1) {
+            msg_email_validation_register.innerHTML = '';
+            msg_email_validation_register.style.color = 'var(--green)';
+            ipt_email_register.style.border = '1px solid var(--green)';
+            ipt_email_register.style.color = 'var(--green)';
+            icon_email_register_true.style.display = 'block';
+            icon_email_register_false.style.display = 'none';
+        } else {
+            msg_email_validation_register.innerHTML = 'Insira um e-mail válido';
+            msg_email_validation_register.style.color = 'var(--redText)';
+            ipt_email_register.style.color = 'var(--redText)';
+            ipt_email_register.style.border = '1px solid var(--red)';
+            icon_email_register_false.style.color = 'var(--red)';
+            icon_email_register_false.style.display = 'block';
+            icon_email_register_true.style.display = 'none';
+        }
+    }
+
+    // Validacao Usuário
+    function validacao_usuario_register() {
+        // Variável E-mail
+        var usuario = ipt_usuario_register.value;
+        // Verifica E-mail
+        if (usuario.match(usuarioReg)) {
+            msg_usuario_validation_register.innerHTML = '';
+            msg_usuario_validation_register.style.color = 'var(--green)';
+            ipt_usuario_register.style.border = '1px solid var(--green)';
+            ipt_usuario_register.style.color = 'var(--green)';
+            icon_usuario_register_true.style.display = 'block';
+            icon_usuario_register_false.style.display = 'none';
+        } else {
+            msg_usuario_validation_register.innerHTML = 'Insira um usuário válido';
+            msg_usuario_validation_register.style.color = 'var(--redText)';
+            ipt_usuario_register.style.color = 'var(--redText)';
+            ipt_usuario_register.style.border = '1px solid var(--red)';
+            icon_usuario_register_false.style.color = 'var(--red)';
+            icon_usuario_register_false.style.display = 'block';
+            icon_usuario_register_true.style.display = 'none';
+        }
+    }
+
+    // Visualizar Senha
+    function display_show_password() {
+        register_show_password.style.display = 'none';
+        register_hidden_password.style.display = 'block';
+        ipt_senha_register.type = 'text';
+
+    }
+    function display_hidden_password() {
+        register_show_password.style.display = 'block';
+        register_hidden_password.style.display = 'none';
+        ipt_senha_register.type = 'password';
+    }
+    // Validacao Senha
+    function validacao_senha_register() {
+        var senha = ipt_senha_register.value;
+        // Verifica Senha
+        if (senha.match(senhaReg) && senha.length >= 6) {
+            msg_senha_validation_register.innerHTML = '';
+            msg_senha_validation_register.style.color = 'var(--green)';
+            ipt_senha_register.style.border = '1px solid var(--green)';
+            ipt_senha_register.style.color = 'var(--green)';
+            icon_senha_register_true.style.display = 'block';
+            icon_senha_register_false.style.display = 'none';
+        } else {
+            msg_senha_validation_register.innerHTML = 'A senha deve conter pelo menos 6 dígitos,<br>1 letra maiúscula, <br>1 letra minúscula <br>e 3 números';
+            msg_senha_validation_register.style.color = 'var(--redText)';
+            ipt_senha_register.style.color = 'var(--redText)';
+            ipt_senha_register.style.border = '1px solid var(--red)';
+            icon_senha_register_false.style.color = 'var(--red)';
+            icon_senha_register_false.style.display = 'block';
+            icon_senha_register_true.style.display = 'none';
+        }
+    }
+
+// FUNCÃO CADASTRAR API 
+
+function cadastrar() {
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            
+            if (response.ok) {
+
+                window.location.href='login.html';
+
+            } else {
+                console.log('Erro de cadastro!');
+            }
+        });
+
+        return false;
+    }
+
+</script>

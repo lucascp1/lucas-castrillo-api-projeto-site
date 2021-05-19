@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Fresh Dragon Fruits</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <link rel="shortcut icon" href="logo/shortcut_icon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body style="background:#141327;">
+<!-- Alerta -->
+<div class="container-notification" id="alert_notification" onclick="close_notification()">
+    <div class="content-notification">
+        <h1>Alerta</h1>
+        <span>Função indisponível no momento</span>
+    </div>
+</div>
+<!-- Header Usuário -->
+<header class="header">
+    <!-- Barra de Pesquisa -->
+    <div class="header-search">
+        <!-- Icone Pesquisa -->
+        <i class="bi bi-search icon-search"></i>
+        <!-- Input Pesquisa -->
+        <input class="input-search" id="input_search" type="text" placeholder="Procurar" onkeyup="search()">
+        <div class="alert" id="alert_search"></div>
+    </div>
+    <!-- Usuário -->
+    <div class="header-user">
+        <!-- Notificações -->
+        <div class="user-notifications" onclick="notification()">
+            <span class="notifications">3</span>
+            <i class="bi bi-bell"></i>
+        </div>
+        <!-- Foto de Perfil -->
+        <figure class="user-icon">            
+            <img src="imgs/person_dashboard.png" alt="Foto de Perfil">
+        </figure>
+        <!-- Opções Usuário -->
+        <div class="user-options" onclick="options()">
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </div>
+</header>
+<!-- Menu Lateral -->
+<section class="navbar-vertical">
+    <!-- Logo Menu -->
+    <div class="navbar-logo">
+        <img src="logo/dark_logo.svg" alt="Logotipo Dragon Fruit">
+    </div>
+    <!-- Nav -->
+    <nav class="nav-vertical">
+        <ul>
+            <a href="dashboard.html" class="nav-link active">
+                <i class="bi bi-speedometer2 nav-links-icon"></i>
+                <span class="nav-links-name active-span">Painel</span>
+            </a>
+            <a href="grafico.html" class="nav-link">
+                <i class="bi bi-bar-chart-line nav-links-icon"></i>
+                <span class="nav-links-name">Gráficos</span>
+            </a>
+            <a href="registros.html" class="nav-link">
+                <i class="bi bi-clipboard-data nav-links-icon"></i>
+                <span class="nav-links-name">Registros</span>
+            </a>
+        </ul>
+        <a href="login.html" class="nav-link">
+            <i class="bi bi-box-arrow-left"></i>
+            <span class="nav-links-name">Encerrar</span>
+        </a>
+    </nav>
+</section>
+<!-- Gráficos e Registros -->
+<section class="container-dashboard">
+    <!-- Conteúdo -->
+	<section class="container-graphic">
+        <!-- Titulo e Descrição Gráfico -->
+        <h1 class="dashboard-title">Painel</h1>
+        <article>
+            <h1>Temperatura</h1>
+            <p>Temperatura atual da plantação</p>
+        </article>
+        <!-- Temperaturas -->
+        <section class="container-cards">
+            <div class="card">
+                <h2>Plantação 1</h1>
+                <span class="nivel-card text-superior-critic">CRÍTICO SUPERIOR</span>
+                <div class="temperature-card card-superior-critic">
+                    <span>32ºC</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Plantação 3</h1>
+                <span class="nivel-card text-superior-critic">CRÍTICO SUPERIOR</span>
+                <div class="temperature-card card-superior-critic">
+                    <span>29.7ºC</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Plantação 2</h1>
+                <span class="nivel-card text-inferior-critic">CRÍTICO INFERIOR</span>
+                <div class="temperature-card card-inferior-critic">
+                    <span>8ºC</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Plantação 5</h1>
+                <span class="nivel-card text-inferior-critic">CRÍTICO INFERIOR</span>
+                <div class="temperature-card card-inferior-critic">
+                    <span>14.5ºC</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Plantação 8</h1>
+                <span class="nivel-card text-superior-attention">ATENÇÃO SUPERIOR</span>
+                <div class="temperature-card card-superior-attention">
+                    <span>27.8ºC</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Plantação 25</h1>
+                <span class="nivel-card text-superior-attention">ATENÇÃO SUPERIOR</span>
+                <div class="temperature-card card-superior-attention">
+                    <span>27.4ºC</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Plantação 32</h1>
+                <span class="nivel-card text-inferior-attention">ATENÇÃO INFERIOR</span>
+                <div class="temperature-card card-inferior-attention">
+                    <span>16.3ºC</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Plantação 32</h1>
+                <span class="nivel-card text-inferior-attention">ATENÇÃO INFERIOR</span>
+                <div class="temperature-card card-inferior-attention">
+                    <span>16.7ºC</span>
+                </div>
+            </div>
+        </section>
+        </section>
+</section>
+<!-- Gráfico Charts JS -->
+<script>
+// Barra de Pesquisa
+function search(){
+    ipt_search = input_search.value;
+    if(ipt_search.length >=1){
+        alert_search.innerHTML = `Função indisponível no momento.`;
+        alert_search.style.display = 'block';
+    } else{
+        alert_search.style.display = 'none';
+    }
+}
+// Notificações Usuário
+function notification(){
+    alert_notification.style.display = 'flex';
+}
+// Opções Usuário
+function notification(){
+    alert_notification.style.display = 'flex';
+}
+// Opções Usuário
+function options(){
+    alert_notification.style.display = 'flex';
+}
+// Fechar Alerta
+function close_notification(){
+    alert_notification.style.display = 'none';
+}
+// Gráfico Charts JS
+// Dimensões Gráfico
+var context = document.getElementById("chart").getContext("2d");
+context.canvas.width = 1000; // Largura do grafico
+context.canvas.height = 300; // Altura do grafico
+
+// Degrade Gráfico
+var ctx = document.getElementById("chart").getContext("2d");
+var gradient = ctx.createLinearGradient(0, 0, 0, 300);
+gradient.addColorStop(0, 'rgba(181,9,75,.25)');
+gradient.addColorStop(1, 'rgba(181,9,75,0)');
+
+// Configurações Charts
+var configuration = {
+	type: 'line',
+	data: {
+		datasets: [{
+			label: "Temperature x Time",
+			type: 'line', //line, bar, radar, pie, polarArea, bubble - Alterar aqui e na linha "type" de cima
+			backgroundColor: gradient, // Cor do Fundo
+			borderColor: '#DD1964', // Cor da Linha
+			borderWidth: 3, // Espessura da Linha
+            //Ponto
+            pointRadius: 8, // Tamanho
+            pointBackgroundColor: '#DD1964', // Cor do Ponto
+            pointBorderWidth: 3, // Cor da Borda do Ponto
+            // Ponto Hover
+            pointHoverRadius: 8, // Tamanho
+            pointHoverBackgroundColor: '#FFEDDF', // Cor do Ponto
+            pointHoverBorderColor: '#DD1964' // Cor da Borda do Ponto
+		}]
+	},
+	options: {
+        legend: {
+            display: false
+        },
+		scales: {
+            // Horizontal
+			xAxes: [{
+				//type: 'value',
+				distribution: 'series',
+                ticks: {
+                    beginAtZero:true
+                },
+                gridLines:{
+                    color: "#FFEDDF",
+                    display: false
+                }
+			}],
+            // Vertical
+			yAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Temperature'
+                },
+                ticks: {
+                    beginAtZero:true
+                },
+                gridLines:{
+                    color: "#15132A",
+                    borderDash: [8, 4],
+                    lineWidth: 1
+                }
+			}]
+		},
+		animation: {
+			duration: 0
+		}
+	}
+};
+        
+var chart = new Chart(context, configuration);
+
+//Função para obter os dados de temperatura do server
+//Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
+
+//Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+//hora de montar/atualizar o gráfico
+this.lastIndexTemp = 0;
+this.time = 0;
+
+function get_data(){
+
+    var http = new XMLHttpRequest();
+    http.open('GET', 'http://localhost:3000/api', false);
+    http.send(null);        
+			
+    var obj = JSON.parse(http.responseText);
+	console.log(obj)
+    if (obj.data.length == 0){
+        return;
+    }
+
+    var _lastIndexTemp = this.lastIndexTemp;
+    this.lastIndexTemp = obj.data.length;
+    listTemp = obj.data.slice(_lastIndexTemp);
+
+    listTemp.forEach(data => {
+    //Máximo de 60 itens exibidos no gráfico
+    if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10){
+        chart.data.labels.shift();
+        chart.data.datasets[0].data.shift();
+    }
+
+        chart.data.labels.push(this.time++);
+        chart.data.datasets[0].data.push(parseFloat(data));
+        chart.update();
+		});
+	} 
+		
+	get_data();
+
+    setInterval(() => {
+    get_data();
+}, 1500);
+</script>    
+</body>
+</html>
